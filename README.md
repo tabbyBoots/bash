@@ -1,5 +1,5 @@
 # bashrc
-My Bash shell configuration file.
 
-#Author:Rex
-#DATE:20250127
+Author:Rex
+DATE:2025-01-27
+My Bash shell configuration file.
