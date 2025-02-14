@@ -24,17 +24,16 @@ alias ga='git add'
 alias gaa='git add .'
 alias commit='git commit -m'
 alias gcc='git checkout'
+alias gcb='git checkout -b'
+alias gb='git branch'
 alias gl='git log --oneline'
 alias lg='git log'
 alias gg='git log --graph --pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)"'
-alias gb='git checkout -b'
-alias gd='git diff'
 alias clone='git clone'
 alias push='git push'
-alias pushBoots='git push -u origin main'
 alias pull='git pull'
 alias merge='git merge'
-alias gb='git branch'
+alias gd='git diff'
 
 alias h='history'
 alias c='clear'
@@ -44,7 +43,11 @@ alias la='ls -al --sort=size'
 alias ll='ls -l --sort=time'
 
 #Directory aliases
-alias vv='cd /e/Meng文件區/VSC2022'
+alias vvv='cd /d/MyDocument/VSC2022'
+alias vvj='cd /d/MyDocument/VSC2022/Git/java'
+alias vvb='cd /d/MyDocument/VSC2022/Git/bash'
+alias vvo='cd /d/MyDocument/VSC2022/Git/Obsidian'
+alias vvs='cd /d/MyDocument/VSC2022/Git/SQL'
 
 # Display the current Git branch in the Bash prompt.
 
