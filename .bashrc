@@ -43,11 +43,11 @@ alias la='ls -al --sort=size'
 alias ll='ls -l --sort=time'
 
 #Directory aliases
-alias vvv='cd /d/MyDocument/VSC2022'
-alias vvj='cd /d/MyDocument/VSC2022/Git/java'
-alias vvb='cd /d/MyDocument/VSC2022/Git/bash'
-alias vvo='cd /d/MyDocument/VSC2022/Git/Obsidian'
-alias vvs='cd /d/MyDocument/VSC2022/Git/SQL'
+alias vvv='cd /c/Git/vsc'
+alias vvj='cd /c/Git/java'
+alias vvb='cd /c/Git/bash'
+alias vvo='cd /c/Git/Obsidian'
+alias vvs='cd /c/Git/SQL'
 
 # Display the current Git branch in the Bash prompt.
 
