@@ -1,11 +1,68 @@
 #plugins=(colorize command-not-found cp zoxide)
-#plugins=(zsh-autosuggestions)
+#plugins=(zsh-autosuggestions eza fzf yazi gh)
 #source ~/.zshrc
 
+
+# default apps
+export EDITOR="nvim"
+export VISUAL="nvim"
+export TERMINAL="kitty"
+export BROWSER="firefox"
+
+# default folders
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_STATE_HOME="$HOME/.local/state"
+export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_SCREENSHOTS_DIR="$HOME/Pictures/screenshots"
+
+# tab autocompletions
+autoload -Uz compinit
+zstyle ':completion:*' menu select
+zmodload zsh/complist
+_comp_options+=(globdots)
+compinit -d $XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION
+
+# use vim keys in tab complete menu
+bindkey -M menuselect 'h' vi-backward-char
+bindkey -M menuselect 'k' vi-up-line-or-history
+bindkey -M menuselect 'l' vi-forward-char
+bindkey -M menuselect 'j' vi-down-line-or-history
+bindkey -v '^?' backward-delete-char
+
+# history
+export HISTSIZE=100000
+export SAVEHIST=20000
+export HISTFILE="$HOME/.zsh_sessions/history"
+setopt hist_ignore_dups     # do not record an event that was just recorded again
+setopt hist_ignore_all_dups # delete an old recorded event if a new event is a duplicate
+setopt hist_ignore_space    # do not record an event starting with a space
+setopt hist_save_no_dups    # do not write a duplicate event to the history file
+setopt inc_append_history   # write to the history file immediately, not when the shell exits
+setopt share_history        # share history between terminals
+
+# fzf in terminal, fzf must be installed to use this
+eval "$(fzf --zsh)"
+
+# change word selection to exclude slashes
+autoload -U select-word-style
+select-word-style bash
+
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#8DFBD2,bold"
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#FFAAAA,bold"
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
-bindkey '^I' autosuggest-accept
+
+# bindkey '^I' autosuggest-accept
+
+# enable Vim mode
+bindkey -v
+
+
+# 8DFBD2
+
+#zstyle ':prezto:module:prompt' theme 'statusline'
+
+export PATH="$PATH:/usr/local/share/dotnet"
 
 HIST_STAMPS="yyyy-mm-dd"
 
@@ -46,6 +103,8 @@ alias llt='eza -lhB --icons=always --color=always -s modified --git-repos'
 alias la='eza -lhBa --icons=always --color=always --git-repos'
 alias lat='eza -lhBa --icons=always --color=always -s modified --git-repos'
 
+alias man='(man $1 || tldr $1) 2>/dev/null'
+
 #Directory aliases
 alias vvv='cd ~/Documents/Git/vsc'
 alias vvj='cd ~/Documents/Git/java'
@@ -58,8 +117,10 @@ alias vvp='cd ~/Documents/Git/python'
 alias v='nvim'
 alias vim='nvim'
 
+
 # tab completion
-#setopt BASH_AUTO_LIST NO_AUTOLIST NO_MENU_COMPLETE
+setopt BASH_AUTO_LIST AUTOLIST AUTOMENU # enable autolist
+#setopt BASH_AUTO_LIST NO_AUTOLIST NO_MENU_COMPLETE #disable autolist
 #setopt +o menucomplete
 #setopt +o automenu
 
